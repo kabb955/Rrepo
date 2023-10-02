@@ -16,7 +16,7 @@ steps:
       Dockerfile: Dockerfile
   - script: Rscript -e 'R.version'
     displayName: 'Confirm R version'
-  - task: RunRScript@0
+  - task: RunRScripte@0
     displayName: Run R Script
     inputs:
       scriptPath: sample.R
