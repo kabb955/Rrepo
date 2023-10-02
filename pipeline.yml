@@ -1,0 +1,22 @@
+trigger:
+ - none
+
+pool:
+  vmImage: 'ubuntu-latest' 
+
+variables:
+  imageName: 'rocker/r-base'
+
+steps:
+  - task: Docker@2
+    displayName: Build an image
+    inputs:
+      repository: $(imageName)
+      command: build
+      Dockerfile: Dockerfile
+  - script: Rscript -e 'R.version'
+    displayName: 'Confirm R version'
+  - task: RunRScript@0
+    displayName: Run R Script
+    inputs:
+      scriptPath: sample.R
