@@ -1,9 +1,0 @@
-jobs:
-- job: Build
-  condition: true
-  pool:
-    vmImage: 'ubuntu-latest'
-  steps:
-  - template: build-steps.yml
-    parameters:
-      workingDir: '$(taskSrc)'
